@@ -1,5 +1,5 @@
 # 光猫桥接改造与故障排查实战教程
-以下方法北京移动亲测可以GPON换XGPON
+
 以 **ZTE ZXHN G7615AV5**（GPON ONT）为例，讲一套可复用的方法：怎么判断桥接是否改干净、怎么定位「WiFi 已连接但无互联网 / 无 DNS 解析」、怎么在动手前备份、怎么在改坏后恢复出厂。
 
 **主角只有光猫**。主路由（任何品牌）、手机、终端都不在教程范围内——它们只是故障的现象放大器，不是原因。
@@ -40,15 +40,18 @@
 | [07-reset.md](docs/07-reset.md) | 重置与恢复出厂：软重置、硬件长按、远程重置 |
 | [08-firmware-analysis.md](docs/08-firmware-analysis.md) | 固件整体转储 + Ghidra 反编译工具链 |
 | [09-publish-checklist.md](docs/09-publish-checklist.md) | 发布前脱敏扫描清单 |
+| [10-itms-dns-hijack.md](docs/10-itms-dns-hijack.md) | **最终定案**：ITMS 未注册导致 DNS 全量劫持的判定与修复 |
 | [tools/](tools/) | 探测、转储、监测、扫描脚本 |
 
 ---
 
 ## 快速结论
 
+**首先排查**：主路由能拨号拿公网 IP、但所有域名都解析成光猫管理地址时，先查 **ITMS 注册状态**（`sendcmd 1 DB p PDTCTUSERINFO`，`Status=99` 即未注册）。这是本次故障的真正根因，详见 [10-itms-dns-hijack.md](docs/10-itms-dns-hijack.md)，一键修复 `tools/fix_itms_dns.py`。
+
 桥接模式下最容易漏掉的五件事：
 
-1. **DNS 劫持**：向光猫查任何域名（包括不存在的）都返回 `192.168.1.1` —— 强制门户行为
+1. **DNS 劫持**：向光猫查任何域名（包括不存在的）都返回 `192.168.1.1` —— 优先排除 ITMS 未注册，再查强制门户行为
 2. **DHCP 没关**：光猫在 LAN 侧继续发 `192.168.1.x`，与主路由网段冲突
 3. **IPv6 空前缀通告**：`Prefix="::" / PrefixLen=0 / Enable=1 / 有效期无限`，终端判定无互联网
 4. **端口绑定错误**：绑到没插线的口，或绑了全部口
