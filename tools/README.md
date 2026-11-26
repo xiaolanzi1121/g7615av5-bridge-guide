@@ -13,6 +13,7 @@
 | `dump_partitions.py` | 批量转储 MTD 分区 | `--recv <IP>:8000 1:uboot ...` |
 | `DumpDecomp.java` | Ghidra 批量反编译脚本 | 作为 `-postScript` 参数 |
 | `scan_secrets.py` | 发布前涉密串扫描 | `--patterns-file /tmp/my_secrets.txt` |
+| `fix_itms_dns.py` | **修复 ITMS 未注册导致的 DNS 全量劫持** | `--check` 只查看；无参数写入并重启 |
 
 ## 用法示例
 
