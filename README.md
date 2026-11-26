@@ -4,6 +4,8 @@
 
 **主角只有光猫**。主路由（任何品牌）、手机、终端都不在教程范围内——它们只是故障的现象放大器，不是原因。
 
+**第一次来请先读 [00-full-walkthrough.md](docs/00-full-walkthrough.md)**：那一篇按真实顺序讲清了「我们做了什么、哪里走错了、最后靠什么定案」，后面 01~09 是可按需查阅的分章手册。
+
 ---
 
 ## 适用场景
@@ -28,6 +30,7 @@
 
 | 文档 | 内容 |
 |---|---|
+| [00-full-walkthrough.md](docs/00-full-walkthrough.md) | **完整实战复盘**：从症状、弯路、A/B 定案到修复验证的总路线图 |
 | [01-principles.md](docs/01-principles.md) | 桥接的四个硬性条件，故障为什么会表现为「无 DNS」 |
 | [02-prepare.md](docs/02-prepare.md) | 动手前准备：telnet、备份、物理接触条件 |
 | [03-old-modem-reference.md](docs/03-old-modem-reference.md) | **从能用的旧光猫读取哪些信息**，建立 A/B 参照 |
