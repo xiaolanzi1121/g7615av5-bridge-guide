@@ -37,7 +37,7 @@ EOF
 python3 tools/scan_secrets.py ./firmware --patterns-file /tmp/my_secrets.txt
 ```
 
-通用模式包括：手机号、12 位以上连续数字（SN / LOID）、标准格式 MAC、`ZTEG` 开头的序列号、`CMCC-` 开头的 SSID。
+通用模式包括：手机号、12 位以上连续数字（SN / LOID）、标准格式 MAC、`ZTEG` 开头的序列号、运营商默认 SSID 前缀。
 
 **判定标准：命中文件数 = 0 才允许发布。**
 
@@ -72,7 +72,7 @@ cat fw-part* > fw.tar
 - 上传后核对 GitHub 返回的 asset `digest` 字段与本地 `shasum -a 256` 一致
 - 仓库设为 **private**，除非你确认所有身份信息都已剔除
 
-## 六、token  hygiene
+## 六、token hygiene
 
 如果在自动化里用过 Personal Access Token：
 
