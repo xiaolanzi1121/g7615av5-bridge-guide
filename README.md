@@ -63,7 +63,9 @@ python3 tools/probe_dns.py 192.168.1.1
 
 ## 固件素材
 
-脱敏后的固件转储见 Releases（8 个 MTD 分区 + rootfs 文件树 + 反编译产物 + 校验清单）。**不含任何账号、密码、序列号、MAC、公网 IP、provisioning 数据**。脱敏方法与扫描脚本见 [09-publish-checklist.md](docs/09-publish-checklist.md)。
+**[→ fw-guide-v1：脱敏固件素材](https://github.com/xiaolanzi1121/g7615av5-bridge-guide/releases/tag/fw-guide-v1)**
+
+6 个固件分区 + rootfs 文件树 + 反编译产物 + 校验清单，170 MB / 3 分片。**不含任何账号、密码、序列号、MAC、公网 IP、provisioning 数据**；针对 21 个专属标识逐一扫描，命中数 0。脱敏方法与扫描脚本见 [09-publish-checklist.md](docs/09-publish-checklist.md)。
 
 ---
 
