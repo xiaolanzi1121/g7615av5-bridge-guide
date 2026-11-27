@@ -14,7 +14,6 @@
 | `DumpDecomp.java` | Ghidra 批量反编译脚本 | 作为 `-postScript` 参数 |
 | `scan_secrets.py` | 发布前涉密串扫描 | `--patterns-file /tmp/my_secrets.txt` |
 | `fix_itms_dns.py` | **修复 ITMS 未注册导致的 DNS 全量劫持** | `--check` 只查看；无参数写入并重启 |
-| `zte_factory.py` | **工厂模式开临时 telnet**（zteOnu 协议复刻） | `-i <IP> -p 80 -u <用户> -w '<口令>' -m <本机MAC>` |
 
 ## 用法示例
 
